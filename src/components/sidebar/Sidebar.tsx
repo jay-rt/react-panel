@@ -1,7 +1,23 @@
 import "./sidebar.scss";
+import { Link } from "react-router-dom";
+import { menu } from "./sidebarData";
 
 const Sidebar = () => {
-  return <div className="sidebar">Sidebar</div>;
+  return (
+    <div className="sidebar">
+      {menu.map((item) => (
+        <div className="item" key={item.id}>
+          <span className="title">{item.title}</span>
+          {item.listItems.map((listItem) => (
+            <Link to={listItem.url} className="list-item" key={listItem.id}>
+              <img src={`/${listItem.icon}`} alt="" />
+              <span className="list-item__title">{listItem.title}</span>
+            </Link>
+          ))}
+        </div>
+      ))}
+    </div>
+  );
 };
 
 export default Sidebar;
