@@ -1,11 +1,17 @@
 import { Bar, BarChart, ResponsiveContainer, Tooltip } from "recharts";
 import "./chartbar.scss";
 
+type BarData = {
+  name: string;
+  profit?: number;
+  visit?: number;
+};
+
 type Props = {
   title: string;
   color: string;
   dataKey: string;
-  chartData: object[];
+  chartData: BarData[];
 };
 
 const ChartBar = (props: Props) => {

@@ -1,9 +1,15 @@
 import { Cell, Pie, PieChart, ResponsiveContainer, Tooltip } from "recharts";
 import "./chartpie.scss";
 
+type PieData = {
+  name: string;
+  value: number;
+  color: string;
+};
+
 type Props = {
   title: string;
-  chartData: { name: string; value: number; color: string }[];
+  chartData: PieData[];
 };
 
 const ChartPie = (props: Props) => {
@@ -12,7 +18,7 @@ const ChartPie = (props: Props) => {
       <h1>{props.title}</h1>
       <div className="pie__chart">
         <div className="chart">
-          <ResponsiveContainer width="100%" height="100%">
+          <ResponsiveContainer width="100%" height={300}>
             <PieChart>
               <Tooltip
                 contentStyle={{ background: "#fff", borderRadius: "5px" }}

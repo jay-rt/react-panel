@@ -2,6 +2,14 @@ import "./chartline.scss";
 import { Link } from "react-router-dom";
 import { Line, LineChart, ResponsiveContainer, Tooltip } from "recharts";
 
+type DataType = {
+  name: string;
+  users?: number;
+  products?: number;
+  revenue?: number;
+  ratio?: number;
+};
+
 type Props = {
   title: string;
   icon: string;
@@ -9,7 +17,7 @@ type Props = {
   color: string;
   dataKey: string;
   percentage: number;
-  chartData: object[];
+  chartData: DataType[];
 };
 
 const ChartLine = (props: Props) => {

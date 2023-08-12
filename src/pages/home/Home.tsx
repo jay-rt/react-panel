@@ -11,6 +11,8 @@ import { barChartRevenue, barChartVisit } from "./data/barChartData";
 import ChartBar from "../../components/charts/bar/ChartBar";
 import ChartPie from "../../components/charts/pie/ChartPie";
 import { pieChartSource } from "./data/pieChartData";
+import ChartArea from "../../components/charts/area/ChartArea";
+import { areaChartRevenue } from "./data/areaChartData";
 
 const Home = () => {
   return (
@@ -33,7 +35,9 @@ const Home = () => {
       <div className="box box6">
         <ChartLine {...lineChartConversion} />
       </div>
-      <div className="box box7">Box7</div>
+      <div className="box box7">
+        <ChartArea {...areaChartRevenue} />
+      </div>
       <div className="box box8">
         <ChartBar {...barChartRevenue} />
       </div>
