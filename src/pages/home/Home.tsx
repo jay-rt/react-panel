@@ -5,10 +5,12 @@ import {
   lineChartProduct,
   lineChartRevenue,
   lineChartUser,
-} from "./lineChartData";
+} from "./data/lineChartData";
 import ChartLine from "../../components/charts/line/ChartLine";
-import { barChartRevenue, barChartVisit } from "./barChartData";
+import { barChartRevenue, barChartVisit } from "./data/barChartData";
 import ChartBar from "../../components/charts/bar/ChartBar";
+import ChartPie from "../../components/charts/pie/ChartPie";
+import { pieChartSource } from "./data/pieChartData";
 
 const Home = () => {
   return (
@@ -22,7 +24,9 @@ const Home = () => {
       <div className="box box3">
         <ChartLine {...lineChartRevenue} />
       </div>
-      <div className="box box4">Box4</div>
+      <div className="box box4">
+        <ChartPie {...pieChartSource} />
+      </div>
       <div className="box box5">
         <ChartLine {...lineChartProduct} />
       </div>
