@@ -14,7 +14,7 @@ type Props = {
 
 const ChartLine = (props: Props) => {
   return (
-    <div className="linecard">
+    <div className="line">
       <div className="left">
         <div className="title">
           <img src={props.icon} alt="" />

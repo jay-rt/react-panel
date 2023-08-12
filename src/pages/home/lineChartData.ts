@@ -1,4 +1,4 @@
-export const chartBoxUser = {
+export const lineChartUser = {
   color: "#8884d8",
   icon: "/userIcon.svg",
   title: "Total Users",
@@ -16,7 +16,7 @@ export const chartBoxUser = {
   ],
 };
 
-export const chartBoxProduct = {
+export const lineChartProduct = {
   color: "skyblue",
   icon: "/productIcon.svg",
   title: "Total Products",
@@ -33,7 +33,7 @@ export const chartBoxProduct = {
     { name: "Sat", products: 450 },
   ],
 };
-export const chartBoxRevenue = {
+export const lineChartRevenue = {
   color: "teal",
   icon: "/revenueIcon.svg",
   title: "Total Revenue",
@@ -50,7 +50,7 @@ export const chartBoxRevenue = {
     { name: "Sat", revenue: 450 },
   ],
 };
-export const chartBoxConversion = {
+export const lineChartConversion = {
   color: "gold",
   icon: "/conversionIcon.svg",
   title: "Total Ratio",

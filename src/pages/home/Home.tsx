@@ -1,12 +1,14 @@
 import "./home.scss";
 import TopDeals from "../../components/topdeals/TopDeals";
 import {
-  chartBoxConversion,
-  chartBoxProduct,
-  chartBoxRevenue,
-  chartBoxUser,
+  lineChartConversion,
+  lineChartProduct,
+  lineChartRevenue,
+  lineChartUser,
 } from "./lineChartData";
 import ChartLine from "../../components/charts/line/ChartLine";
+import { barChartRevenue, barChartVisit } from "./barChartData";
+import ChartBar from "../../components/charts/bar/ChartBar";
 
 const Home = () => {
   return (
@@ -15,21 +17,25 @@ const Home = () => {
         <TopDeals />
       </div>
       <div className="box box2">
-        <ChartLine {...chartBoxUser} />
+        <ChartLine {...lineChartUser} />
       </div>
       <div className="box box3">
-        <ChartLine {...chartBoxRevenue} />
+        <ChartLine {...lineChartRevenue} />
       </div>
       <div className="box box4">Box4</div>
       <div className="box box5">
-        <ChartLine {...chartBoxProduct} />
+        <ChartLine {...lineChartProduct} />
       </div>
       <div className="box box6">
-        <ChartLine {...chartBoxConversion} />
+        <ChartLine {...lineChartConversion} />
       </div>
       <div className="box box7">Box7</div>
-      <div className="box box8">Box8</div>
-      <div className="box box9">Box9</div>
+      <div className="box box8">
+        <ChartBar {...barChartRevenue} />
+      </div>
+      <div className="box box9">
+        <ChartBar {...barChartVisit} />
+      </div>
     </div>
   );
 };
