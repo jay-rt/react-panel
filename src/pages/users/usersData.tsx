@@ -143,3 +143,47 @@ export const userRows = [
     createdAt: "01.02.2023",
   },
 ];
+
+export const userInput = [
+  {
+    id: "firstname",
+    label: "First Name",
+    type: "text",
+  },
+  {
+    id: "lastname",
+    label: "Last Name",
+    type: "text",
+  },
+  {
+    id: "email",
+    label: "Email",
+    type: "email",
+  },
+  {
+    id: "phone",
+    label: "Phone",
+    type: "tel",
+  },
+  {
+    id: "verified",
+    label: "Verified",
+    type: "select",
+  },
+];
+
+export type UserStateType = {
+  firstname: string;
+  lastname: string;
+  email: string;
+  phone: string;
+  verified: "false" | "true";
+};
+
+export const userState: UserStateType = {
+  firstname: "",
+  lastname: "",
+  email: "",
+  phone: "",
+  verified: "false",
+};
