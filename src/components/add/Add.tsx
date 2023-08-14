@@ -41,30 +41,32 @@ const Add = (props: Props) => {
         </span>
         <h1>{`Add New ${props.slug}`}</h1>
         <form onSubmit={handleSubmit}>
-          {props.input.map((item) => (
-            <div className="item" key={item.id}>
-              <label htmlFor={item.id}>{item.label}</label>
-              {item.type !== "select" ? (
-                <input
-                  type={item.type}
-                  id={item.id}
-                  name={item.id}
-                  value={input[item.id as keyof UserStateType]}
-                  onChange={handleChange}
-                  required
-                />
-              ) : (
-                <select
-                  name={item.id}
-                  defaultValue={"false"}
-                  onChange={handleChange}
-                >
-                  <option value="true">Yes</option>
-                  <option value="false">No</option>
-                </select>
-              )}
-            </div>
-          ))}
+          <div className="items">
+            {props.input.map((item) => (
+              <div className="item" key={item.id}>
+                <label htmlFor={item.id}>{item.label}</label>
+                {item.type !== "select" ? (
+                  <input
+                    type={item.type}
+                    id={item.id}
+                    name={item.id}
+                    value={input[item.id as keyof UserStateType]}
+                    onChange={handleChange}
+                    required
+                  />
+                ) : (
+                  <select
+                    name={item.id}
+                    defaultValue={"false"}
+                    onChange={handleChange}
+                  >
+                    <option value="true">Yes</option>
+                    <option value="false">No</option>
+                  </select>
+                )}
+              </div>
+            ))}
+          </div>
           <button type="submit">Add</button>
         </form>
       </div>

@@ -1,17 +1,10 @@
+@import "../../styles/variables.scss";
+
 .users {
     .info {
         display: flex;
         align-items: center;
         justify-content: space-between;
         margin: 20px 0 30px;
-
-        button {
-            padding: 10px 20px;
-            border-radius: 5px;
-            cursor: pointer;
-            background-color: #1dce70;
-            color: #fff;
-            border: none;
-        }
     }
 }

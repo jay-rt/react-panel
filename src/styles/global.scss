@@ -1,3 +1,5 @@
+@import "./variables.scss";
+
 * {
     margin: 0;
     padding: 0;
@@ -7,4 +9,13 @@
 a {
     text-decoration: none;
     color: inherit;
+}
+
+button {
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: $create-btn;
+    color: $main-color;
+    border: none;
 }
