@@ -1,4 +1,17 @@
-export const userRows = [
+import { InputType } from "../../components/add/Add";
+
+export type UserRows = {
+  id: number;
+  img: string;
+  firstName: string;
+  lastName: string;
+  email: string;
+  phone: string;
+  createdAt: string;
+  verified?: boolean;
+};
+
+export const userRows: UserRows[] = [
   {
     id: 1,
     img: "https://images.pexels.com/photos/8405873/pexels-photo-8405873.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load",
@@ -144,32 +157,12 @@ export const userRows = [
   },
 ];
 
-export const userInput = [
-  {
-    id: "firstname",
-    label: "First Name",
-    type: "text",
-  },
-  {
-    id: "lastname",
-    label: "Last Name",
-    type: "text",
-  },
-  {
-    id: "email",
-    label: "Email",
-    type: "email",
-  },
-  {
-    id: "phone",
-    label: "Phone",
-    type: "tel",
-  },
-  {
-    id: "verified",
-    label: "Verified",
-    type: "select",
-  },
+export const userInput: InputType[] = [
+  { id: "firstname", label: "First Name", type: "text" },
+  { id: "lastname", label: "Last Name", type: "text" },
+  { id: "email", label: "Email", type: "email" },
+  { id: "phone", label: "Phone", type: "tel" },
+  { id: "verified", label: "Verified", type: "boolean" },
 ];
 
 export type UserStateType = {
@@ -177,7 +170,7 @@ export type UserStateType = {
   lastname: string;
   email: string;
   phone: string;
-  verified: "false" | "true";
+  verified: "true" | "false";
 };
 
 export const userState: UserStateType = {

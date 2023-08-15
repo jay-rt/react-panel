@@ -55,14 +55,12 @@ const columns: GridColDef[] = [
 
 const Users = () => {
   const [open, setOpen] = useState(false);
-  const handleClick = () => {
-    setOpen(true);
-  };
+
   return (
     <div className="users">
       <div className="info">
         <h1>Users</h1>
-        <button type="button" onClick={handleClick}>
+        <button type="button" onClick={() => setOpen(true)}>
           Add New User
         </button>
       </div>

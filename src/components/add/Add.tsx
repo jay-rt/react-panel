@@ -1,18 +1,21 @@
 import "./add.scss";
 import { UserStateType } from "../../pages/users/usersData";
 import { useState } from "react";
+import { ProductStateType } from "../../pages/products/productData";
 
-type InputType = {
+export type InputType = {
   id: string;
   label: string;
-  type: string;
+  type: "text" | "email" | "tel" | "boolean";
 };
+
+type StateType = UserStateType | ProductStateType;
 
 type Props = {
   slug: string;
   input: InputType[];
   setOpen: React.Dispatch<React.SetStateAction<boolean>>;
-  initialState: UserStateType;
+  initialState: StateType;
 };
 
 const Add = (props: Props) => {
@@ -45,12 +48,12 @@ const Add = (props: Props) => {
             {props.input.map((item) => (
               <div className="item" key={item.id}>
                 <label htmlFor={item.id}>{item.label}</label>
-                {item.type !== "select" ? (
+                {item.type !== "boolean" ? (
                   <input
                     type={item.type}
                     id={item.id}
                     name={item.id}
-                    value={input[item.id as keyof UserStateType]}
+                    value={input[item.id as keyof StateType]}
                     onChange={handleChange}
                     required
                   />

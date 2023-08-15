@@ -1,22 +1,13 @@
-import { Link } from "react-router-dom";
 import "./datatable.scss";
+import { Link } from "react-router-dom";
 import { DataGrid, GridColDef, GridToolbar } from "@mui/x-data-grid";
-
-type UserRows = {
-  id: number;
-  img: string;
-  firstName: string;
-  lastName: string;
-  email: string;
-  phone: string;
-  createdAt: string;
-  verified?: boolean;
-};
+import { UserRows } from "../../pages/users/usersData";
+import { ProductRows } from "../../pages/products/productData";
 
 type Props = {
   slug: string;
   columns: GridColDef[];
-  rows: UserRows[];
+  rows: (UserRows | ProductRows)[];
 };
 
 const DataTable = (props: Props) => {
