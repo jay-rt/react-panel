@@ -1,6 +1,6 @@
 import { InputType } from "../../components/add/Add";
 
-export type UserRows = {
+type UserRows = {
   id: number;
   img: string;
   firstName: string;

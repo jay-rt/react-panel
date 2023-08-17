@@ -5,6 +5,8 @@ import Home from "./pages/home/Home";
 import Users from "./pages/users/Users";
 import Products from "./pages/products/Products";
 import Login from "./pages/login/Login";
+import Single from "./pages/single/Single";
+import { singleProduct, singleUser } from "./pages/single/singleData";
 
 const App = () => {
   const router = createBrowserRouter([
@@ -14,7 +16,9 @@ const App = () => {
       children: [
         { path: "/", element: <Home /> },
         { path: "/users", element: <Users /> },
+        { path: "/users/:id", element: <Single {...singleUser} /> },
         { path: "/products", element: <Products /> },
+        { path: "/products/:id", element: <Single {...singleProduct} /> },
       ],
     },
   ]);

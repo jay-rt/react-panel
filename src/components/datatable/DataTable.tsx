@@ -1,16 +1,14 @@
 import "./datatable.scss";
 import { Link } from "react-router-dom";
 import { DataGrid, GridColDef, GridToolbar } from "@mui/x-data-grid";
-import { UserRows } from "../../pages/users/usersData";
-import { ProductRows } from "../../pages/products/productData";
 
-type Props = {
+type Props<T> = {
   slug: string;
   columns: GridColDef[];
-  rows: (UserRows | ProductRows)[];
+  rows: T[];
 };
 
-const DataTable = (props: Props) => {
+const DataTable = <T extends object>(props: Props<T>) => {
   const handleDelete = (id: number) => {
     console.log(id + " has been deleted.");
   };

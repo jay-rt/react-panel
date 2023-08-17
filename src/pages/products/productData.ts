@@ -1,6 +1,6 @@
 import { InputType } from "../../components/add/Add";
 
-export type ProductRows = {
+type ProductRows = {
   id: number;
   img: string;
   title: string;
