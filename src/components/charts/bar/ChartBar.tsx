@@ -1,5 +1,6 @@
-import { Bar, BarChart, ResponsiveContainer, Tooltip } from "recharts";
 import "./chartbar.scss";
+import { Bar, BarChart, Tooltip } from "recharts";
+import AutoSizer from "react-virtualized-auto-sizer";
 
 type BarData = {
   name: string;
@@ -19,16 +20,18 @@ const ChartBar = (props: Props) => {
     <div className="bar">
       <h1>{props.title}</h1>
       <div className="chart">
-        <ResponsiveContainer width="100%" height="100%">
-          <BarChart width={150} height={40} data={props.chartData}>
-            <Tooltip
-              contentStyle={{ background: "#2a3447", borderRadius: "5px" }}
-              labelStyle={{ display: "none" }}
-              cursor={false}
-            />
-            <Bar dataKey={props.dataKey} fill={props.color} />
-          </BarChart>
-        </ResponsiveContainer>
+        <AutoSizer>
+          {({ width, height }) => (
+            <BarChart width={width} height={height} data={props.chartData}>
+              <Tooltip
+                contentStyle={{ background: "#2a3447", borderRadius: "5px" }}
+                labelStyle={{ display: "none" }}
+                cursor={false}
+              />
+              <Bar dataKey={props.dataKey} fill={props.color} />
+            </BarChart>
+          )}
+        </AutoSizer>
       </div>
     </div>
   );

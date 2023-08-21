@@ -1,5 +1,6 @@
-import { Cell, Pie, PieChart, ResponsiveContainer, Tooltip } from "recharts";
 import "./chartpie.scss";
+import { Cell, Pie, PieChart, Tooltip } from "recharts";
+import AutoSizer from "react-virtualized-auto-sizer";
 
 type PieData = {
   name: string;
@@ -16,10 +17,10 @@ const ChartPie = (props: Props) => {
   return (
     <div className="pie">
       <h1>{props.title}</h1>
-      <div className="pie__chart">
-        <div className="chart">
-          <ResponsiveContainer width="100%" height={300}>
-            <PieChart>
+      <div className="chart">
+        <AutoSizer>
+          {({ width, height }) => (
+            <PieChart width={width} height={height}>
               <Tooltip
                 contentStyle={{ background: "#fff", borderRadius: "5px" }}
               />
@@ -35,19 +36,19 @@ const ChartPie = (props: Props) => {
                 ))}
               </Pie>
             </PieChart>
-          </ResponsiveContainer>
-        </div>
-        <div className="options">
-          {props.chartData.map((item) => (
-            <div className="option" key={item.name}>
-              <div className="title">
-                <div className="dot" style={{ background: item.color }} />
-                <span>{item.name}</span>
-              </div>
-              <span>{item.value}</span>
+          )}
+        </AutoSizer>
+      </div>
+      <div className="options">
+        {props.chartData.map((item) => (
+          <div className="option" key={item.name}>
+            <div className="title">
+              <div className="dot" style={{ background: item.color }} />
+              <span>{item.name}</span>
             </div>
-          ))}
-        </div>
+            <span>{item.value}</span>
+          </div>
+        ))}
       </div>
     </div>
   );

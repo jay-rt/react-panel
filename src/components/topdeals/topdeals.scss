@@ -1,6 +1,12 @@
+@import "../../styles/responsive.scss";
+
 .topdeals {
     h1 {
         margin-bottom: 20px;
+
+        @include xxl {
+            font-size: 24px;
+        }
     }
 
     .deals {
@@ -22,6 +28,14 @@
                     height: 40px;
                     border-radius: 50%;
                     object-fit: cover;
+
+                    @include xxl {
+                        display: none;
+                    }
+
+                    @include xl {
+                        display: block;
+                    }
                 }
 
                 .user-info {

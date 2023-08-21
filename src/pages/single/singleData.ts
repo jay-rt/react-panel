@@ -85,26 +85,28 @@ export const singleUser: Props<UserInfoType, UserDataType> = {
   },
   activities: [
     {
+      id: 6,
       text: "John Doe purchased Playstation 5 Digital Edition",
       time: "3 day ago",
     },
     {
+      id: 5,
       text: "John Doe added 3 items into their wishlist",
       time: "1 week ago",
     },
     {
+      id: 4,
       text: "John Doe purchased Sony Bravia KD-32w800",
       time: "2 weeks ago",
     },
+    { id: 3, text: "John Doe reviewed a product", time: "1 month ago" },
     {
-      text: "John Doe reviewed a product",
-      time: "1 month ago",
-    },
-    {
+      id: 2,
       text: "John Doe added 1 items into their wishlist",
       time: "1 month ago",
     },
     {
+      id: 1,
       text: "John Doe reviewed a product",
       time: "2 months ago",
     },
@@ -168,26 +170,32 @@ export const singleProduct: Props<ProductInfoType, ProductDataType> = {
   },
   activities: [
     {
+      id: 6,
       text: "John Doe purchased Playstation 5 Digital Edition",
       time: "3 day ago",
     },
     {
+      id: 5,
       text: "Jane Doe added Playstation 5 Digital Edition into their wishlist",
       time: "1 week ago",
     },
     {
+      id: 4,
       text: "Mike Doe purchased Playstation 5 Digital Edition",
       time: "2 weeks ago",
     },
     {
+      id: 3,
       text: "Anna Doe reviewed the product",
       time: "1 month ago",
     },
     {
+      id: 2,
       text: "Michael Doe added Playstation 5 Digital Edition into their wishlist",
       time: "1 month ago",
     },
     {
+      id: 1,
       text: "Helen Doe reviewed the product",
       time: "2 months ago",
     },

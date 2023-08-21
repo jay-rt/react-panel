@@ -1,6 +1,7 @@
 import "./chartline.scss";
 import { Link } from "react-router-dom";
-import { Line, LineChart, ResponsiveContainer, Tooltip } from "recharts";
+import { Line, LineChart, Tooltip } from "recharts";
+import AutoSizer from "react-virtualized-auto-sizer";
 
 type DataType = {
   name: string;
@@ -23,7 +24,7 @@ type Props = {
 const ChartLine = (props: Props) => {
   return (
     <div className="line">
-      <div className="left">
+      <div className="info__general">
         <div className="title">
           <img src={props.icon} alt="" />
           <span>{props.title}</span>
@@ -33,24 +34,26 @@ const ChartLine = (props: Props) => {
           View all
         </Link>
       </div>
-      <div className="right">
+      <div className="info__chart">
         <div className="chart">
-          <ResponsiveContainer width="100%" height="100%">
-            <LineChart data={props.chartData}>
-              <Tooltip
-                contentStyle={{ background: "transparent", border: "none" }}
-                labelStyle={{ display: "none" }}
-                position={{ x: 10, y: 60 }}
-              />
-              <Line
-                type="monotone"
-                dataKey={props.dataKey}
-                stroke={props.color}
-                strokeWidth={2}
-                dot={false}
-              />
-            </LineChart>
-          </ResponsiveContainer>
+          <AutoSizer>
+            {({ width, height }) => (
+              <LineChart width={width} height={height} data={props.chartData}>
+                <Tooltip
+                  contentStyle={{ background: "transparent", border: "none" }}
+                  labelStyle={{ display: "none" }}
+                  position={{ x: 10, y: 60 }}
+                />
+                <Line
+                  type="monotone"
+                  dataKey={props.dataKey}
+                  stroke={props.color}
+                  strokeWidth={2}
+                  dot={false}
+                />
+              </LineChart>
+            )}
+          </AutoSizer>
         </div>
         <div className="desc">
           <span

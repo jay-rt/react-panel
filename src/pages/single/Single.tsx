@@ -1,13 +1,6 @@
 import "./single.scss";
-import {
-  Legend,
-  Line,
-  LineChart,
-  ResponsiveContainer,
-  Tooltip,
-  XAxis,
-  YAxis,
-} from "recharts";
+import { Legend, Line, LineChart, Tooltip, XAxis, YAxis } from "recharts";
+import AutoSizer from "react-virtualized-auto-sizer";
 
 export type Props<T, K> = {
   id: number;
@@ -19,7 +12,7 @@ export type Props<T, K> = {
     dataKeys: { name: string; color: string }[];
     data: K[];
   };
-  activities: { time: string; text: string }[];
+  activities: { id: number; time: string; text: string }[];
 };
 
 const Single = <T extends object, K extends object>(props: Props<T, K>) => {
@@ -43,38 +36,41 @@ const Single = <T extends object, K extends object>(props: Props<T, K>) => {
         </div>
         <hr />
         <div className="chart">
-          <ResponsiveContainer width="100%" height="100%">
-            <LineChart
-              width={500}
-              height={300}
-              data={props.chart.data}
-              margin={{
-                top: 5,
-                right: 30,
-                left: 20,
-                bottom: 5,
-              }}
-            >
-              <XAxis dataKey="name" />
-              <YAxis />
-              <Tooltip />
-              <Legend />
-              {props.chart.dataKeys.map((dataKey) => (
-                <Line
-                  type="monotone"
-                  dataKey={dataKey.name}
-                  stroke={dataKey.color}
-                />
-              ))}
-            </LineChart>
-          </ResponsiveContainer>
+          <AutoSizer>
+            {({ width, height }) => (
+              <LineChart
+                width={width}
+                height={height}
+                data={props.chart.data}
+                margin={{
+                  top: 5,
+                  right: 30,
+                  left: 20,
+                  bottom: 5,
+                }}
+              >
+                <XAxis dataKey="name" />
+                <YAxis />
+                <Tooltip />
+                <Legend />
+                {props.chart.dataKeys.map((dataKey) => (
+                  <Line
+                    type="monotone"
+                    dataKey={dataKey.name}
+                    stroke={dataKey.color}
+                    key={dataKey.name}
+                  />
+                ))}
+              </LineChart>
+            )}
+          </AutoSizer>
         </div>
       </div>
       <div className="activities">
         <h2>Latest Activities</h2>
         <ul>
           {props.activities.map((activity) => (
-            <li>
+            <li key={activity.id}>
               <div>
                 <p>{activity.text}</p>
                 <time>{activity.time}</time>

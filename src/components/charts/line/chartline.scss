@@ -1,30 +1,53 @@
+@import "../../../styles//responsive.scss";
+
 .line {
     display: flex;
     height: 100%;
 
-    .left {
+    @include sm {
+        flex-direction: column;
+    }
+
+    .info__general {
         flex: 3;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
 
+
+        @include sm {
+            flex: 1;
+        }
+
         .title {
             display: flex;
             align-items: center;
             gap: 10px;
+
+            @include xxl {
+                font-size: 14px;
+            }
         }
 
         p {
             font-weight: bold;
             font-size: 2rem;
+
+            @include xxl {
+                font-size: 20px;
+            }
         }
     }
 
-    .right {
+    .info__chart {
         flex: 2;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
+
+        @include sm {
+            flex: 1;
+        }
 
         .chart {
             width: 100%;
@@ -39,6 +62,10 @@
             .percentage {
                 font-size: 20px;
                 font-weight: bold;
+
+                @include xxl {
+                    font-size: 16px;
+                }
             }
 
             .positive {

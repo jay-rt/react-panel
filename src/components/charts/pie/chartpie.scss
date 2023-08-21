@@ -1,41 +1,53 @@
+@import "../../../styles/responsive.scss";
+
 .pie {
     height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 
-    h1 {
-        margin-bottom: 20px;
+    @include xxl {
+        h1 {
+            font-size: 24px;
+        }
     }
 
-    .pie__chart {
-        height: 90%;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
+    .chart {
+        width: 100%;
+        height: 100%;
+    }
 
-        .chart {
-            width: 100%;
-            height: 100%;
+    .options {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        font-size: 14px;
+
+        @include lg {
+            flex-wrap: nowrap;
+            justify-content: space-between;
         }
 
-        .options {
+        .option {
+            width: 45%;
             display: flex;
+            flex-direction: column;
             gap: 10px;
+            align-items: flex-start;
 
-            .option {
+            @include lg {
+                align-items: center;
+            }
+
+            .title {
                 display: flex;
-                flex-direction: column;
                 gap: 10px;
                 align-items: center;
 
-                .title {
-                    display: flex;
-                    gap: 10px;
-                    align-items: center;
-
-                    .dot {
-                        width: 10px;
-                        height: 10px;
-                        border-radius: 50%;
-                    }
+                .dot {
+                    width: 10px;
+                    height: 10px;
+                    border-radius: 50%;
                 }
             }
         }
