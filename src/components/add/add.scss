@@ -1,4 +1,5 @@
 @import "../../styles/variables.scss";
+@import "../../styles//responsive.scss";
 
 .add {
     position: fixed;
@@ -16,6 +17,10 @@
         padding: 50px;
         background-color: $main-bg;
         border-radius: 10px;
+
+        @include md {
+            width: 85%;
+        }
 
         .close {
             position: absolute;
@@ -38,12 +43,21 @@
                 justify-content: space-between;
                 margin-bottom: 20px;
 
+                @include sm {
+                    flex-wrap: nowrap;
+                    flex-direction: column;
+                }
+
                 .item {
                     width: 40%;
                     display: flex;
                     flex-direction: column;
                     gap: 10px;
                     margin-bottom: 20px;
+
+                    @include sm {
+                        width: 100%;
+                    }
 
                     input {
                         padding: 10px;

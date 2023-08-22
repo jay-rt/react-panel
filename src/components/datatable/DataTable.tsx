@@ -1,6 +1,8 @@
 import "./datatable.scss";
 import { Link } from "react-router-dom";
 import { DataGrid, GridColDef, GridToolbar } from "@mui/x-data-grid";
+import AutoSizer from "react-virtualized-auto-sizer";
+import Box from "@mui/material/Box";
 
 type Props<T> = {
   slug: string;
@@ -32,31 +34,37 @@ const DataTable = <T extends object>(props: Props<T>) => {
   };
   return (
     <div className="datatable">
-      <DataGrid
-        className="datagrid"
-        rows={props.rows}
-        columns={[...props.columns, actionColumn]}
-        initialState={{
-          pagination: {
-            paginationModel: {
-              pageSize: 10,
-            },
-          },
-        }}
-        slots={{ toolbar: GridToolbar }}
-        slotProps={{
-          toolbar: {
-            showQuickFilter: true,
-            quickFilterProps: { debounceMs: 500 },
-          },
-        }}
-        pageSizeOptions={[10]}
-        checkboxSelection
-        disableRowSelectionOnClick
-        disableColumnFilter
-        disableDensitySelector
-        disableColumnSelector
-      />
+      <AutoSizer>
+        {({ width, height }) => (
+          <Box sx={{ width: width, height: height }}>
+            <DataGrid
+              className="datagrid"
+              rows={props.rows}
+              columns={[...props.columns, actionColumn]}
+              initialState={{
+                pagination: {
+                  paginationModel: {
+                    pageSize: 10,
+                  },
+                },
+              }}
+              slots={{ toolbar: GridToolbar }}
+              slotProps={{
+                toolbar: {
+                  showQuickFilter: true,
+                  quickFilterProps: { debounceMs: 500 },
+                },
+              }}
+              pageSizeOptions={[10]}
+              checkboxSelection
+              disableRowSelectionOnClick
+              disableColumnFilter
+              disableDensitySelector
+              disableColumnSelector
+            />
+          </Box>
+        )}
+      </AutoSizer>
     </div>
   );
 };

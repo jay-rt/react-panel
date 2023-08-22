@@ -59,6 +59,7 @@ const Add = (props: Props) => {
                   />
                 ) : (
                   <select
+                    id={item.id}
                     name={item.id}
                     defaultValue={"false"}
                     onChange={handleChange}

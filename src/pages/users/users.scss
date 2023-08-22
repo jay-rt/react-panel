@@ -1,8 +1,13 @@
 .users {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+
     .info {
         display: flex;
         align-items: center;
         justify-content: space-between;
-        margin: 20px 0 30px;
+        margin-top: 20px;
     }
 }
