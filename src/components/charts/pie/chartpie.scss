@@ -28,27 +28,32 @@
             justify-content: space-between;
         }
 
+        @include sm {
+            flex-wrap: wrap;
+        }
+
         .option {
             width: 45%;
-            display: flex;
-            flex-direction: column;
+            display: grid;
             gap: 10px;
-            align-items: flex-start;
+            grid-template-columns: 1fr 2fr;
+            grid-template-areas: "a b" "c d";
 
-            @include lg {
-                align-items: center;
+            .dot {
+                width: 10px;
+                height: 10px;
+                border-radius: 50%;
+                grid-area: a;
+                align-self: center;
+                justify-self: center;
             }
 
-            .title {
-                display: flex;
-                gap: 10px;
-                align-items: center;
+            .name {
+                grid-area: b;
+            }
 
-                .dot {
-                    width: 10px;
-                    height: 10px;
-                    border-radius: 50%;
-                }
+            .value {
+                grid-area: d;
             }
         }
     }

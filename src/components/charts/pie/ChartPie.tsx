@@ -42,11 +42,9 @@ const ChartPie = (props: Props) => {
       <div className="options">
         {props.chartData.map((item) => (
           <div className="option" key={item.name}>
-            <div className="title">
-              <div className="dot" style={{ background: item.color }} />
-              <span>{item.name}</span>
-            </div>
-            <span>{item.value}</span>
+            <div className="dot" style={{ background: item.color }}></div>
+            <span className="name">{item.name}</span>
+            <span className="value">{item.value}</span>
           </div>
         ))}
       </div>
